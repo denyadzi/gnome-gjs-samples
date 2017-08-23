@@ -1,12 +1,9 @@
-const Lang = imports.lang;
 const Gda = imports.gi.Gda;
 const InsertPlain = imports.insert_plain;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 
-const InsertPlaceholders = new Lang.Class({
-  Name: 'InsertPlaceholders',
-  Extends: InsertPlain.InsertPlain,
+class InsertPlaceholders extends InsertPlain.InsertPlain {
 
   operate() {
     let [ stmt , ] = this._parser.parse_string(
@@ -19,7 +16,7 @@ const InsertPlaceholders = new Lang.Class({
       this._connection.statement_execute_non_select(stmt, params);
     });
   }
-});
+}
 
 function getExample() {
   return new InsertPlaceholders();

@@ -21,16 +21,16 @@ function initDbConnection() {
   return conn;
 }
 
-var DbOperationExample = new Lang.Class({
-  Name: 'DbOperationExample',
+class _DbOperationExample {
   setUp() {
     this._connection = initDbConnection();
-  },
+  }
   operate() {
     throw new Error('The example should implement operate() method');
-  },
+  }
   tearDown() {
     cleanUp();
   }
-});
+}
 
+var DbOperationExample = _DbOperationExample;

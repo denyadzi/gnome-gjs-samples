@@ -1,14 +1,11 @@
 const Common = imports.common;
-const Lang = imports.lang;
 const Gda = imports.gi.Gda;
 const GObject = imports.gi.GObject;
 
-const SelectWherePlain = new Lang.Class({
-  Name: 'SelectWherePlain',
-  Extends: Common.DbOperationExample,
+class SelectWherePlain extends Common.DbOperationExample {
 
   setUp() {
-    this.parent();
+    super.setUp();
     this._parser = this._connection.create_parser();
     let [ createStmt , ] = this._parser.parse_string(
       `CREATE TABLE test (
@@ -39,7 +36,7 @@ const SelectWherePlain = new Lang.Class({
       params.get_holder('age_param').set_value(person[1]);
       this._connection.statement_execute_non_select(insertStmt, params);
     });
-  },
+  }
 
   operate() {
     let [ selectStmt , ] = this._parser.parse_string(
@@ -59,8 +56,8 @@ const SelectWherePlain = new Lang.Class({
         age: ${ iter.get_value_for_field('age') }
       `);
     }
-  },
-});
+  }
+}
 
 function getExample() {
   return new SelectWherePlain();

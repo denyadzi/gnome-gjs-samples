@@ -1,11 +1,8 @@
 const Gda = imports.gi.Gda;
 const GObject = imports.gi.GObject;
-const Lang = imports.lang;
 const InsertPlain = imports.insert_plain;
 
-const InsertBuilderPlaceholders = new Lang.Class({
-  Name: 'InsertBuilderPlaceholders',
-  Extends: InsertPlain.InsertPlain,
+class InsertBuilderPlaceholders extends InsertPlain.InsertPlain {
 
   operate() {
     let insertBuilder = new Gda.SqlBuilder({
@@ -23,7 +20,7 @@ const InsertBuilderPlaceholders = new Lang.Class({
       this._connection.statement_execute_non_select(stmt, params);
     });
   }
-});
+}
 
 function getExample() {
   return new InsertBuilderPlaceholders();

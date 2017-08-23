@@ -1,19 +1,16 @@
 const Common = imports.common;
-const Lang = imports.lang;
 const Gda = imports.gi.Gda;
 
-const InsertPlain = new Lang.Class({
-  Name: 'InsertPlain',
-  Extends: Common.DbOperationExample,
+class _InsertPlain extends Common.DbOperationExample {
 
   setUp() {
-    this.parent();
+    super.setUp();
     this._parser = this._connection.create_parser();
     let [stmt , ] = this._parser.parse_string(
       'CREATE TABLE `test` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` VARCHAR(20) DEFAULT NULL)'
     );
     this._connection.statement_execute_non_select(stmt, null);
-  },
+  }
   
   operate() {
     let [stmt , ] = this._parser.parse_string(
@@ -22,7 +19,7 @@ const InsertPlain = new Lang.Class({
     for (let i in [...Array(10).keys()]) {
       this._connection.statement_execute_non_select(stmt, null);
     }
-  },
+  }
 
   tearDown() {
     let [stmt , ] = this._parser.parse_string(
@@ -31,10 +28,12 @@ const InsertPlain = new Lang.Class({
     let dataModel = this._connection.statement_execute_select(stmt, null);
     let dump = dataModel.dump_as_string();
     log(dump);
-    this.parent();
+    super.tearDown();
   }
-});
+}
+
+var InsertPlain = _InsertPlain;
 
 function getExample() {
-  return new InsertPlain();
+  return new _InsertPlain();
 }
