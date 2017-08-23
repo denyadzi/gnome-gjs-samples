@@ -1,0 +1,2 @@
+export LD_LIBRARY_PATH=/opt/glib/lib:/usr/lib/:$LD_LIBRARY_PATH
+export GI_TYPELIB_PATH=/opt/glib/lib/girepository-1.0/:/usr/lib/girepository-1.0/:/usr/lib/x86_64-linux-gnu/girepository-1.0/:$GI_TYPELIB_PATH
