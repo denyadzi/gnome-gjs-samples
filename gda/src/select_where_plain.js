@@ -2,7 +2,7 @@ const Common = imports.common;
 const Gda = imports.gi.Gda;
 const GObject = imports.gi.GObject;
 
-class SelectWherePlain extends Common.DbOperationExample {
+var SelectWherePlain = class extends Common.DbOperationExample {
 
   setUp() {
     super.setUp();

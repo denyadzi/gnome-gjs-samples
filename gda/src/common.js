@@ -21,7 +21,7 @@ function initDbConnection() {
   return conn;
 }
 
-class _DbOperationExample {
+var DbOperationExample = class {
   setUp() {
     this._connection = initDbConnection();
   }
@@ -33,4 +33,3 @@ class _DbOperationExample {
   }
 }
 
-var DbOperationExample = _DbOperationExample;

@@ -4,6 +4,7 @@ const Examples = [
   'insert_builder',
   'insert_builder_placeholders',
   'select_where_plain',
+  'select_builder_where',
 ];
 
 function main(args) {

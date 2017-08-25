@@ -1,7 +1,7 @@
 const Common = imports.common;
 const Gda = imports.gi.Gda;
 
-class _InsertPlain extends Common.DbOperationExample {
+var InsertPlain = class extends Common.DbOperationExample {
 
   setUp() {
     super.setUp();
@@ -32,8 +32,6 @@ class _InsertPlain extends Common.DbOperationExample {
   }
 }
 
-var InsertPlain = _InsertPlain;
-
 function getExample() {
-  return new _InsertPlain();
+  return new InsertPlain();
 }
