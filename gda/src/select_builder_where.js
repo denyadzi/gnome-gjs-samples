@@ -29,6 +29,15 @@ class SelectBuilderWhere extends SelectWherePlain.SelectWherePlain {
     params.get_holder("age_param").set_value(30);
     data = this._connection.statement_execute_select(stmt, params);
     log(data.dump_as_string());
+
+    let and1 = b.add_cond(Gda.SqlOperatorType.GT, b.add_field_id("age", null), b.add_expr_value(null, 20), 0);
+    let and2 = b.add_cond(Gda.SqlOperatorType.LT, b.add_field_id("age", null), b.add_expr_value(null, 25), 0);
+    b.set_where(
+        b.add_cond(Gda.SqlOperatorType.AND, and1, and2, 0)
+    );
+    stmt = b.get_statement();
+    data = this._connection.statement_execute_select(stmt, null);
+    log(data.dump_as_string());
   }
 }
 
